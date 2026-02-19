@@ -2,20 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #05c7f2;
+  font-family: var(--font-geom-variable), sans-serif;
+}
+
+.accordion-text-head {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* Color Theme Swatches in Hex */
+.Fondo-infantil-con-banderines--1-hex {
+  color: #f205cb;
+}
+.Fondo-infantil-con-banderines--2-hex {
+  color: #c785f2;
+}
+.Fondo-infantil-con-banderines--3-hex {
+  color: #05c7f2;
+}
+.Fondo-infantil-con-banderines--4-hex {
+  color: #d0f252;
+}
+.Fondo-infantil-con-banderines--5-hex {
+  color: #f28e13;
+}
+
+/* Color Theme Swatches in RGBA */
+.Fondo-infantil-con-banderines--1-rgba {
+  color: rgba(242, 4, 202, 1);
+}
+.Fondo-infantil-con-banderines--2-rgba {
+  color: rgba(198, 133, 242, 1);
+}
+.Fondo-infantil-con-banderines--3-rgba {
+  color: rgba(4, 198, 242, 1);
+}
+.Fondo-infantil-con-banderines--4-rgba {
+  color: rgba(207, 242, 82, 1);
+}
+.Fondo-infantil-con-banderines--5-rgba {
+  color: rgba(242, 141, 19, 1);
+}
+
+/* Color Theme Swatches in HSLA */
+.Fondo-infantil-con-banderines--1-hsla {
+  color: hsla(309, 96, 48, 1);
+}
+.Fondo-infantil-con-banderines--2-hsla {
+  color: hsla(275, 81, 73, 1);
+}
+.Fondo-infantil-con-banderines--3-hsla {
+  color: hsla(191, 96, 48, 1);
+}
+.Fondo-infantil-con-banderines--4-hsla {
+  color: hsla(73, 86, 63, 1);
+}
+.Fondo-infantil-con-banderines--5-hsla {
+  color: hsla(33, 89, 51, 1);
+}
+
+.accordion-container {
+  overflow: hidden;
+  transition:
+    max-height 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.accordion-container.closed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.accordion-container.open {
+  max-height: 600px;
+}
+
+.accordion-text-head.active {
+  transform: scale(1.05);
+  background-color: #fff;
 }
