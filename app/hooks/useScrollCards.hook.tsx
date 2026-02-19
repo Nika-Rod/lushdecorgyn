@@ -1,5 +1,11 @@
 import { useEffect, useRef } from "react";
 
+type CardData = {
+  title: string;
+  description: string;
+  image: string;
+};
+
 export const useScrollCards = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const cardsRef = useRef<Array<HTMLDivElement | null>>([]);
@@ -71,5 +77,12 @@ export const useScrollCards = () => {
     };
   }, []);
 
-  return { sectionRef, cardsRef };
+  const dataCards: CardData[] = [
+    { title: "Card 1", description: "Description for card 1", image: "/images/card-1.jpg" },
+    { title: "Card 2", description: "Description for card 2", image: "/images/card-2.jpg" },
+    { title: "Card 3", description: "Description for card 3", image: "/images/card-3.jpg" },
+    { title: "Card 4", description: "Description for card 4", image: "/images/card-4.jpg" },
+  ];
+
+  return { sectionRef, cardsRef, dataCards };
 };

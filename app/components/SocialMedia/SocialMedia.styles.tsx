@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const SocialMediaContainer = styled.section`
-  background-color: #38bdf8; 
+  background-image: url('/images/background-abstract-organic.jpg');
+  background-size: contain;
+  background-position: center;
   width: 100%;
 `;
 
@@ -50,9 +52,9 @@ export const Text = styled.p`
   margin: 0;
 `;
 
-export const ActionLink = styled.a<{isWhatsapp?: boolean}>`
+export const ActionLink = styled.a<{$isWhatsapp?: boolean}>`
   align-self: center;
-  background-color: ${({ isWhatsapp }) => (isWhatsapp ? "#52aea5" : "#b1739a")};
+  background-color: ${({ $isWhatsapp }) => ($isWhatsapp ? "#52aea5" : "#b1739a")};
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
   border: 2px solid #3e293e;
   box-shadow: rgba(0, 0, 0, 0.15) 4px 8px 15px -5px;

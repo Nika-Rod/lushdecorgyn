@@ -4,6 +4,8 @@ import Whatsapp from "../../../public/images/whatsapp.png";
 import * as S from "./SocialMedia.styles";
 
 export const SocialMedia = () => {
+
+
   return (
     <S.SocialMediaContainer>
       <S.SocialMediaWrapper>
@@ -17,7 +19,7 @@ export const SocialMedia = () => {
           <S.Text>
             Fale com a gente direto pelo WhatsApp! Tire suas dúvidas rapidamente com nossa equipe.
           </S.Text>
-          <S.ActionLink href="https://w.app/lushdecor" target="_blank" isWhatsapp={true}>
+          <S.ActionLink href="https://w.app/lushdecor" target="_blank" $isWhatsapp={true}>
             Chamar no Whatsapp
           </S.ActionLink>
         </S.Card>
@@ -32,7 +34,7 @@ export const SocialMedia = () => {
           <S.Text>
             Acompanhe nossas novidades, lançamentos e o dia a dia da nossa loja no Instagram!
           </S.Text>
-          <S.ActionLink href="https://www.instagram.com/lushdecor.gyn/" target="_blank" isWhatsapp={false}>
+          <S.ActionLink href="https://www.instagram.com/lushdecor.gyn/" target="_blank" $isWhatsapp={false}>
             Ver Instagram
           </S.ActionLink>
         </S.Card>
@@ -46,3 +48,5 @@ export const SocialMedia = () => {
 // Whatsapp stickers created by Stickers - Flaticon
 
 // Instagram stickers created by Stickers - Flaticon
+
+//Imagem de freepik
