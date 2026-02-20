@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SocialMediaContainer = styled.section`
-  background-image: url('/images/background-abstract-organic.jpg');
+  background-image: url("/images/background-abstract-organic.jpg");
   background-size: contain;
   background-position: center;
   width: 100%;
@@ -11,7 +11,7 @@ export const SocialMediaWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 2rem; 
+  padding: 4rem 2rem;
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -24,18 +24,18 @@ export const SocialMediaWrapper = styled.div`
 
 export const Card = styled.div`
   width: 100%;
-  max-width: 380px; 
+  max-width: 380px;
   display: flex;
   flex-direction: column;
   background-color: #fff;
   border-radius: 50% 20% / 10% 40%;
 
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 24px; 
-  
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 24px;
+
   gap: 1.5rem;
   padding: 3rem 2.5rem;
   align-items: center;
-  border: 2px solid #3e293e;
+  border: 1px solid #3e293e;
   text-align: center;
   transition: transform 0.3s ease;
 
@@ -45,23 +45,24 @@ export const Card = styled.div`
 `;
 
 export const Text = styled.p`
-  font-family: 'Nunito', sans-serif; 
+  font-family: "Nunito", sans-serif;
   font-size: 1rem;
   color: #4a5568;
   line-height: 1.5;
   margin: 0;
 `;
 
-export const ActionLink = styled.a<{$isWhatsapp?: boolean}>`
+export const ActionLink = styled.a<{ $isWhatsapp?: boolean }>`
   align-self: center;
-  background-color: ${({ $isWhatsapp }) => ($isWhatsapp ? "#52aea5" : "#b1739a")};
+  background-color: ${({ $isWhatsapp }) =>
+    $isWhatsapp ? "#52aea5" : "#b1739a"};
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
   border: 2px solid #3e293e;
   box-shadow: rgba(0, 0, 0, 0.15) 4px 8px 15px -5px;
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: 'Neucha', cursive;
+  font-family: "Neucha", cursive;
   font-size: 1.3rem;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
@@ -74,6 +75,13 @@ export const ActionLink = styled.a<{$isWhatsapp?: boolean}>`
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.2) 2px 4px 8px -2px;
     transform: translate3d(0, 2px, 0);
-    filter: brightness(1.05); 
+    filter: brightness(1.05);
   }
+`;
+
+export const Attribution = styled.div`
+  font-size: 0.55rem;
+  color: #4a5568;
+  text-align: right;
+  opacity: 0.5;
 `;
