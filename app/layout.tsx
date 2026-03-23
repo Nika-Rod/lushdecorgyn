@@ -27,6 +27,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body
         className={`$${geomItalic.variable} ${geomVariable.variable} antialiased`}
+        style={{overflowX: "hidden"}}
       >
         {children}
       </body>

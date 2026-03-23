@@ -1,6 +1,7 @@
-
-import Image from "next/image";
-import ImageDiv from "../../../public/images/cozinha.png";
+import BedImg from "../../../public/images/bed.webp";
+import TableImg from "../../../public/images/childrens-table.jpg";
+import DressingTableImg from "../../../public/images/dressing-table.jpg";
+import FactoryImg from "../../../public/images/factory.jpg";
 import * as S from "./AboutUs.styles";
 
 export const AboutUs = () => {
@@ -8,27 +9,46 @@ export const AboutUs = () => {
     <S.AboutUsContainer>
       <S.AboutUsWrapper>
         <S.TextEndImage>
-          <div>
-            <S.Title>Sobre Nós</S.Title>
-            <p>
-              Lorem ipsum dolor sit amet. Qui iure galisum qui totam
-              necessitatibus in voluptatem consequuntur hic placeat aperiam et
-              praesentium quia est reiciendis explicabo. Et voluptas dicta qui
-              enim pariatur est ipsum officia ea error soluta non dolorem
-              provident. Et fugiat numquam vel asperiores molestias ut neque
-              harum et deserunt distinctio rem Quis corrupti non obcaecati odio
-              aut delectus asperiores. Sed rerum alias qui deleniti voluptates
-              nam architecto aperiam sed praesentium numquam qui voluptatem
-              iusto ea sint esse in ducimus sint. Eum laudantium laborum et
-              necessitatibus quas non fugiat voluptates est fuga molestiae? Vel
-              alias quos ut placeat voluptatum non explicabo dolorem. Et
-              perspiciatis esse rem expedita rerum quo galisum debitis sit enim
-              iste ad error error aut autem libero ad excepturi soluta. Eum
-              dolorem earum et ipsum sunt et tempore dolores a sint magnam quo
-              quasi quasi eos molestias velit.
-            </p>
-          </div>
-          <S.ImageWrapper><Image src={ImageDiv} alt="Cozinha" /></S.ImageWrapper>
+          <S.TitleAndText>
+            <S.Title>Criando Cenários para Memórias Felizes</S.Title>
+            <S.Text>
+              A nossa história nasce no coração de uma família. Somos dois
+              irmãos, marceneiros por profissão e pais por amor — com três
+              filhos cada, sabemos exatamente que um móvel infantil é muito mais
+              do que madeira; é o palco onde a imaginação dos nossos pequenos
+              ganha vida.
+              <br />
+              Na nossa oficina, cada Kit Cozinha, Penteadeira ou Cama
+              Personalizada é tratado com o rigor de quem está produzindo para o
+              próprio filho. Unimos o cuidado artesanal com um olhar criterioso
+              em cada detalhe, garantindo peças seguras, resistentes e com
+              acabamento impecável.
+              <br />
+              Embora tenhamos itens a pronta entrega, nossa especialidade é dar
+              cor aos seus sonhos através de encomendas personalizadas. Aqui,
+              você escolhe as cores e os detalhes para que cada peça seja única,
+              assim como a infância deve ser.
+            </S.Text>
+          </S.TitleAndText>
+
+          <S.ImageGrid>
+            <div className="column">
+              <S.ImageWrapper $shape="type1">
+                <img src={FactoryImg.src} alt="Oficina Infantil" />
+              </S.ImageWrapper>
+              <S.ImageWrapper $shape="type2">
+                <img src={TableImg.src} alt="Conjunto de Mesa Infantil" />
+              </S.ImageWrapper>
+            </div>
+            <div className="column">
+              <S.ImageWrapper $shape="type3">
+                <img src={DressingTableImg.src} alt="Penteadeira" />
+              </S.ImageWrapper>
+              <S.ImageWrapper $shape="type1">
+                <img src={BedImg.src} alt="Cama Infantil Personalizada" />
+              </S.ImageWrapper>
+            </div>
+          </S.ImageGrid>
         </S.TextEndImage>
       </S.AboutUsWrapper>
     </S.AboutUsContainer>

@@ -16,11 +16,13 @@ export default function ScrollCards() {
               }}
               className="card"
             >
-              <div >
-                <h4>{card.title}</h4>
-                <p>{card.description}</p>
-                <img src={card.image} alt={card.title} />
-              </div>
+              <S.CardContent>
+                <S.CardImage src={card.image} alt={card.title} />
+                <div className="text-wrapper">
+                  <h4>{card.title}</h4>
+                  <p>{card.description}</p>
+                </div>
+              </S.CardContent>
             </S.Card>
           ))}
         </S.CardsContainer>

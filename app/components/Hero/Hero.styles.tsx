@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.main`
-  background-image: url("/images/bg-banner.png");
-  background-size: cover;
-  background-position: center;
   position: relative;
   display: flex;
   align-items: center;
@@ -59,7 +56,7 @@ export const SmokyDetail = styled.div`
   bottom: 0;
   width: 100%;
   height: 8rem;
-  background: linear-gradient(to top, #38bdf8, transparent);
+  // background: linear-gradient(to top, #38bdf8, transparent);
   z-index: 20;
   pointer-events: none;
 `;

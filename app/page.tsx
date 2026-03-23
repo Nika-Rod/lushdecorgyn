@@ -7,7 +7,7 @@ import { Hero } from "./components/Hero/Hero";
 import { Navbar } from "./components/Navbar/Navbar";
 import { useScrollObserver } from "./hooks/useScrollObserver.hook";
 import { RollingStripe } from "./components/Stripe/RollingStripe";
-import { CloudProducts } from "./components/CloudProducts/CloudProducts";
+import { Products } from "./components/Products/Products";
 import Aos from "aos";
 import { useEffect } from "react";
 import "aos/dist/aos.css";
@@ -16,6 +16,7 @@ import ScrollCards from "./components/ScrollCards/ScrollCards";
 import { CustomerOpinion } from "./components/CustomerOpinion/CustomerOpinion";
 import { Footer } from "./components/Footer/Footer";
 import { SocialMedia } from "./components/SocialMedia/SocialMedia";
+import { ImageSlides } from "./components/ImageSlides/ImageSlides";
 
 export default function Home() {
   const { navbarRef } = useScrollObserver();
@@ -31,12 +32,13 @@ export default function Home() {
     <>
       <Navbar ref={navbarRef} />
       <Hero />
-      <CloudProducts />
+      <Products />
       <RollingStripe />
       <AboutUs />
       <ScrollCards />
       <CustomerOpinion />
       <SocialMedia />
+      <ImageSlides />
       <Footer />
     </>
   );

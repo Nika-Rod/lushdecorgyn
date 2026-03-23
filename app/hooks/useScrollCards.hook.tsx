@@ -1,4 +1,8 @@
 import { useEffect, useRef } from "react";
+import Kid1 from "../../public/images/kid-1.jpg";
+import Kid2 from "../../public/images/kid-2.jpg";
+import Kid3 from "../../public/images/kid-3.jpeg";
+import Kid4 from "../../public/images/kid-4.jpg";
 
 type CardData = {
   title: string;
@@ -22,9 +26,9 @@ export const useScrollCards = () => {
     const total = cards.length;
     if (!total) return;
 
-    const horizontalSpread = Math.min(window.innerWidth * 0.35, 280);
-    const maxLift = 80;
-    const baseScale = 0.86;
+    const horizontalSpread = Math.min(window.innerWidth * 0.4, 350);
+    const maxLift = 120;
+    const baseScale = 0.7;
 
     cards.forEach((card, i) => {
       const local = clamp(progress * 1.5 - i * 0.15, 0, 1);
@@ -41,11 +45,12 @@ export const useScrollCards = () => {
 
       const rotate = lerp(0, centerOffset * 8, local);
       const scale = lerp(baseScale, 1, local);
-      const opacity = lerp(0.55, 1, local);
+      const opacity = i === 0 ? 1 : lerp(0, 1, local);
 
       card.style.transform = `translate(-50%, -50%) translateX(${x}px) translateY(${y}px) rotate(${rotate}deg) scale(${scale})`;
       card.style.opacity = `${opacity}`;
-      card.style.zIndex = String(Math.round(1000 - Math.abs(centerOffset)));
+      card.style.visibility = i !== 0 && local === 0 ? 'hidden' : 'visible';
+      card.style.zIndex = String(Math.round(1000 - i));
     });
   };
 
@@ -78,10 +83,30 @@ export const useScrollCards = () => {
   }, []);
 
   const dataCards: CardData[] = [
-    { title: "Card 1", description: "Description for card 1", image: "/images/card-1.jpg" },
-    { title: "Card 2", description: "Description for card 2", image: "/images/card-2.jpg" },
-    { title: "Card 3", description: "Description for card 3", image: "/images/card-3.jpg" },
-    { title: "Card 4", description: "Description for card 4", image: "/images/card-4.jpg" },
+    {
+      title: "Segurança em 1º Lugar",
+      description:
+        "Projetado por pais que sabem que cantos arredondados e travas seguras são essenciais.",
+      image: Kid1.src,
+    },
+    {
+      title: "Cores que Encantam",
+      description:
+        "Personalizamos cada detalhe para que o quarto seja o lugar favorito da casa.",
+      image: Kid2.src,
+    },
+    {
+      title: "Feito para Durar",
+      description:
+        "Madeira real tratada para aguentar toda a energia e criatividade da infância.",
+      image: Kid3.src,
+    },
+    {
+      title: "Brincar de Verdade",
+      description:
+        "Móveis que estimulam a autonomia e o faz de conta longe das telas.",
+      image: Kid4.src,
+    },
   ];
 
   return { sectionRef, cardsRef, dataCards };

@@ -2,6 +2,7 @@ import React from "react";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import * as S from "./CustomerOpinion.styles";
 
 const depoimentos = [
   {
@@ -32,57 +33,53 @@ const depoimentos = [
 
 export const CustomerOpinion = () => {
   return (
-    <div style={{ padding: "40px", backgroundColor: "#f9f9f9" }}>
-      <h2 style={{ textAlign: "center", marginBottom: "30px" }}>
-        O que nossos clientes dizem
-      </h2>
+    <div style={{ padding: "40px", backgroundColor: "#f89071" }}>
+      <S.SectionTitle>
+        Famílias que já encantam seus pequenos
+      </S.SectionTitle>
 
       <Splide
         options={{
           type: "loop",
-          drag: "free",
-          focus: "center",
           perPage: 3,
-          gap: "20px", 
+          gap: "30px",
+          padding: "10px",
           pagination: false,
           arrows: false,
+          height: "auto", 
+          direction: "ltr",
+          clones: 2,
           autoScroll: {
-            speed: 1,
-            pauseOnHover: true, 
+            speed: 0.8,
+            pauseOnHover: true,
+          },
+          heightRatio: 0,
+          autoHeight: false,
+          breakpoints: {
+            1024: { perPage: 2 },
+            768: { perPage: 1 },
           },
         }}
-
         extensions={{ AutoScroll }}
+        className="custom-splide"
       >
         {depoimentos.map((cliente) => (
           <SplideSlide key={cliente.id}>
-            <div
-              style={{
-                backgroundColor: "#fff",
-                padding: "20px",
-                borderRadius: "10px",
-                boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-                textAlign: "center",
-                height: "100%",
-              }}
-            >
-              <img
-                src={cliente.foto}
-                alt={`Foto de ${cliente.nome}`}
+            <S.OpinionCard>
+              <S.UserPhoto src={cliente.foto} alt={cliente.nome} />
+              <S.TestimonyText>{cliente.texto}</S.TestimonyText>
+              <h4
                 style={{
-                  width: "60px",
-                  height: "60px",
-                  borderRadius: "50%",
-                  marginBottom: "15px",
+                  fontWeight: "900",
+                  color: "#1f2a37",
+                  textTransform: "uppercase",
+                  fontSize: "0.9rem",
+                  letterSpacing: "1px",
                 }}
-              />
-              <p style={{ fontStyle: "italic", color: "#555" }}>
-                {cliente.texto}
-              </p>
-              <h4 style={{ marginTop: "15px", color: "#333" }}>
+              >
                 {cliente.nome}
               </h4>
-            </div>
+            </S.OpinionCard>
           </SplideSlide>
         ))}
       </Splide>

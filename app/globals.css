@@ -5,7 +5,7 @@
 
 body {
   color: var(--foreground);
-  background-color: #38bdf8;
+  background-color: #bfdcea;
   font-family: var(--font-geom-variable), sans-serif;
 }
 
@@ -88,4 +88,12 @@ body {
 .accordion-text-head.active {
   transform: scale(1.05);
   background-color: #fff;
+}
+
+.splide__track {
+  padding: 20px 0 !important; 
+}
+
+.splide__slide {
+  height: auto !important; 
 }

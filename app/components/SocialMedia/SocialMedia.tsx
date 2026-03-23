@@ -59,3 +59,4 @@ export const SocialMedia = () => {
 //  Mom stickers created by DinosoftLabs - Flaticon
 //  Whatsapp stickers created by Stickers - Flaticon
 //  Instagram stickers created by Stickers - Flaticon
+{/* <a href="https://www.flaticon.com/free-stickers/cute" title="cute stickers">Cute stickers created by Reem Alnounou - Flaticon</a> */}
