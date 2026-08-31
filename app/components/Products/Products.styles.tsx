@@ -5,7 +5,14 @@ export const SectionContainer = styled.section`
   width: 100%;
   padding: 8rem 1rem;
   background-image: url("/images/hand-drawn.jpg");
-  background-size: contain;
+  background-size: cover;
+  overflow-y: hidden;
+
+  @media (min-width: 768px) {
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const CardItem = styled.div`
@@ -21,9 +28,17 @@ export const CardItem = styled.div`
   margin-top: 80px;
   box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.03);
   height: 100%;
+  width: 100%;
+  min-width: 280px;
+  max-width: 380px;
   transition: all 0.3s ease-in-out;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding-bottom: 3rem;
+
+  @media (min-width: 1024px) {
+    min-width: 320px;
+    max-width: 400px;
+  }
 
   &:hover {
     transform: translateY(-8px);
@@ -31,12 +46,26 @@ export const CardItem = styled.div`
   }
 `;
 
+export const ImageWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 180px;
+  margin-top: -80px;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 768px) {
+    height: 220px;
+    margin-top: -100px;
+  }
+`;
+
 export const ProductImage = styled.img<{ $isKitchen?: boolean }>`
-  width: ${({ $isKitchen }) => ($isKitchen ? "470px" : "280px")};
-  height: ${({ $isKitchen }) => ($isKitchen ? "470px" : "280px")};
+  width: 100%;
+  height: auto;
+  max-width: ${({ $isKitchen }) => ($isKitchen ? "240px" : "180px")};
   object-fit: contain;
-  margin-top: ${({ $isKitchen }) => ($isKitchen ? "-200px" : "-100px")};
-  margin-bottom: ${({ $isKitchen }) => ($isKitchen ? "-66px" : "1.5rem")};
+
   filter: drop-shadow(0px 20px 25px rgba(0, 0, 0, 0.2));
   transition: transform 0.3s ease;
 
@@ -44,10 +73,8 @@ export const ProductImage = styled.img<{ $isKitchen?: boolean }>`
     transform: scale(1.1) rotate(2deg);
   }
 
-  @media (max-width: 768px) {
-    width: 220px;
-    height: 220px;
-    margin-top: -80px;
+  @media (min-width: 768px) {
+    max-width: ${({ $isKitchen }) => ($isKitchen ? "320px" : "250px")};
   }
 `;
 
@@ -74,6 +101,11 @@ export const CustomSplide = styled(Splide)`
   .splide__list {
     display: flex;
     align-items: stretch;
+  }
+
+  .splide__slide {
+    display: flex;
+    justify-content: center;
   }
 `;
 

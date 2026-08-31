@@ -12,7 +12,7 @@ import Aos from "aos";
 import { useEffect } from "react";
 import "aos/dist/aos.css";
 import { AboutUs } from "./components/AboutUs/AboutUs";
-import ScrollCards from "./components/ScrollCards/ScrollCards";
+// import ScrollCards from "./components/ScrollCards/ScrollCards";
 import { CustomerOpinion } from "./components/CustomerOpinion/CustomerOpinion";
 import { Footer } from "./components/Footer/Footer";
 import { SocialMedia } from "./components/SocialMedia/SocialMedia";
@@ -35,7 +35,7 @@ export default function Home() {
       <Products />
       <RollingStripe />
       <AboutUs />
-      <ScrollCards />
+      {/* <ScrollCards /> */}
       <CustomerOpinion />
       <SocialMedia />
       <ImageSlides />

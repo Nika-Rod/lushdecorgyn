@@ -1,13 +1,24 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import * as S from "./Navbar.styles";
 
 export const Navbar = forwardRef<HTMLElement>((_, ref) => {
-  return (
-    <S.NavBarWrapper ref={ref} id="navbar" >
-      <nav className="container mx-auto flex items-center justify-between">
-        <img src="images/logo.jpg" alt="" className="w-20" />
+  const [isOpen, setIsOpen] = useState(false);
 
-        <ul className="flex gap-6">
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  return (
+    <S.NavBarWrapper ref={ref} id="navbar">
+      <nav>
+        <img src="images/logo.jpg" alt="Logo" className="logo" />
+
+        <div className={`hamburger ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        {/* Lista de Links */}
+        <ul className={isOpen ? "open" : ""}>
           <li>Quem Somos</li>
           <li>Sobre</li>
           <li>Contato</li>

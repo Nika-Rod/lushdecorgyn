@@ -1,39 +1,35 @@
 import styled from "styled-components";
 
-export const CardsSection = styled.section`
-  position: relative;
-  width: 100%;
-  height: 350vh;
-  background-color: #f89071;
-`;
-
 export const StickyContainer = styled.div`
-  position: sticky;
+  position: static;
   top: 0;
   width: 100%;
-  height: 100vh;
+  height: auto;
   display: flex;
-  align-items: flex-start; 
+  align-items: flex-start;
   justify-content: center;
-  padding-top: 120px; 
-  overflow: hidden;
+  padding-top: 0;
+  overflow: visible;
 `;
 
 export const CardsContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 1200px;
-  height: 520px;
+  height: 600px;
   display: block;
 `;
 
 export const Card = styled.div`
-  position: absolute;
+  position: static;
   left: 50%;
   top: 50%;
-  width: 340px;
-  height: 460px;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
   background: white;
   border-radius: 12px 40px 15px 35px / 35px 15px 40px 12px;
   border: 2px solid #1a1a1a;
@@ -74,5 +70,37 @@ export const CardContent = styled.div`
     font-size: 0.95rem;
     color: #4a5568;
     line-height: 1.4;
+  }
+`;
+
+export const CardsSection = styled.section`
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #f89071;
+  padding: 4rem 1rem;
+
+  @media (min-width: 768px) {
+    height: 400vh;
+
+    ${StickyContainer} {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      padding-top: 25vh;
+      overflow: hidden;
+    }
+
+    ${Card} {
+      position: absolute;
+      width: 340px;
+      height: 460px;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+    }
+
+    ${CardImage} {
+      }
   }
 `;

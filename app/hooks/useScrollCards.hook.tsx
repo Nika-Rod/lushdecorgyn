@@ -56,6 +56,8 @@ export const useScrollCards = () => {
 
   useEffect(() => {
     let rafId: number;
+    const isMobile = window.matchMedia("(max-width: 768px)")
+    if (isMobile) return;
 
     const handleScroll = () => {
       if (!sectionRef.current) return;

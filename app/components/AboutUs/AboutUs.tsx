@@ -17,13 +17,15 @@ export const AboutUs = () => {
               filhos cada, sabemos exatamente que um móvel infantil é muito mais
               do que madeira; é o palco onde a imaginação dos nossos pequenos
               ganha vida.
-              <br />
+            </S.Text>
+            <S.Text>
               Na nossa oficina, cada Kit Cozinha, Penteadeira ou Cama
               Personalizada é tratado com o rigor de quem está produzindo para o
               próprio filho. Unimos o cuidado artesanal com um olhar criterioso
               em cada detalhe, garantindo peças seguras, resistentes e com
               acabamento impecável.
-              <br />
+            </S.Text>
+            <S.Text>
               Embora tenhamos itens a pronta entrega, nossa especialidade é dar
               cor aos seus sonhos através de encomendas personalizadas. Aqui,
               você escolhe as cores e os detalhes para que cada peça seja única,

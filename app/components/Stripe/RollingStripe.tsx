@@ -3,18 +3,20 @@ import * as S from "./RollingStripe.styles";
 export const RollingStripe = () => {
   return (
     <S.StripeWrapper>
-      <div className="stripe">
-        <div className="marquee">
-          <div className="marquee__content">
-            <span>😊 FEITO COM CARINHO</span>
-            <span>👶 AMADO PELAS CRIANÇAS</span>
-            <span>🍓 BACKED BY SCIENCE</span>
-            <span>😊 FEITO COM CARINHO</span>
-            <span>👶 AMADO PELAS CRIANÇAS</span>
-            <span>🍓 BACKED BY SCIENCE</span>
-          </div>
-        </div>
-      </div>
+      <S.StripeClip>
+        <S.Stripe>
+          <S.Marquee>
+            <S.MarqueeContent>
+              <span>😊 FEITO COM CARINHO</span>
+              <span>👶 AMADO PELAS CRIANÇAS</span>
+              <span>🍓 BACKED BY SCIENCE</span>
+              <span>😊 FEITO COM CARINHO</span>
+              <span>👶 AMADO PELAS CRIANÇAS</span>
+              <span>🍓 BACKED BY SCIENCE</span>
+            </S.MarqueeContent>
+          </S.Marquee>
+        </S.Stripe>
+      </S.StripeClip>
     </S.StripeWrapper>
   );
 };

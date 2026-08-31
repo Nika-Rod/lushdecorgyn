@@ -1,47 +1,49 @@
-import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
 import ImgBanner from "../../../public/images/girl-background.png";
 import * as S from "./Hero.styles";
+import { useScrollHero } from "@/app/hooks/useScrollHero.hook";
 
 export const Hero = () => {
-  const containerRef = useRef(null);
-  const { scrollY } = useScroll();
-  const textY = useTransform(scrollY, [0, 400], [0, 100]);
-  const textOpacity = useTransform(scrollY, [0, 300], [1, 0.2]);
-  const imageY = useTransform(scrollY, [0, 500], [50, -100]);
-  const imageOpacity = useTransform(scrollY, [50, 400], [0, 1]);
-  const imageScale = useTransform(scrollY, [50, 500], [0.9, 1]);
+  const { progress, heroRef } = useScrollHero();
+
+  const titleOpacity =
+    progress < 0.3 ? 1 : progress < 0.5 ? 1 - (progress - 0.3) / 0.2 : 0;
+
+  let subtitleOpacity = 0;
+  if (progress > 0.45 && progress < 0.55) {
+    subtitleOpacity = (progress - 0.45) / 0.1; 
+  } else if (progress >= 0.55 && progress <= 0.7) {
+    subtitleOpacity = 1; 
+  } else if (progress > 0.7 && progress <= 0.8) {
+    subtitleOpacity = 1 - (progress - 0.7) / 0.1; 
+  }
+
+  const imageOpacity = progress < 0.8 ? 0 : Math.min((progress - 0.8) / 0.15, 1);
+
+  const wrapperStyles = {
+    "--title-opacity": titleOpacity,
+    "--subtitle-opacity": subtitleOpacity,
+    "--image-opacity": imageOpacity,
+  } as React.CSSProperties;
 
   return (
-    <S.HeroContainer ref={containerRef} id="hero">
-      <S.HeroWrapper>
-        <motion.h1
-          style={{ y: textY, opacity: textOpacity }}
-          className="text-6xl md:text-9xl lg:text-[12rem] font-black text-[#9C8356] leading-none absolute z-0 select-none tracking-tighter text-center w-full px-4"
-        >
+    <S.HeroContainer id="hero" ref={heroRef}>
+      <S.HeroWrapper style={wrapperStyles}>
+        <h1 className="fade-item title-fade visible">
           Lushdecor
-        </motion.h1>
+        </h1>
 
-        <motion.div
-          style={{
-            y: imageY,
-            opacity: imageOpacity,
-            scale: imageScale,
-          }}
-          className="z-10 relative pt-20 md:pt-32 flex flex-col items-center"
-        >
-          <Image
-            src={ImgBanner}
-            alt="Criança brincando com produtos Lushdecor"
-            className="max-w-[40vw]  object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
-          />
-          <S.Subtitle>
-            Encanto e conforto para os pequenos
-          </S.Subtitle>
-        </motion.div>
+        <S.Subtitle className="fade-item subtitle-fade visible">
+          Encanto e conforto para os pequenos
+        </S.Subtitle>
+
+        <Image
+          src={ImgBanner}
+          alt="Criança brincando com produtos Lushdecor"
+          className="fade-item image-fade visible"
+        />
+        <S.SmokyDetail />
       </S.HeroWrapper>
-      <S.SmokyDetail />
     </S.HeroContainer>
   );
 };

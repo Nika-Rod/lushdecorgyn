@@ -5,8 +5,8 @@ import Laundry from "../../../public/images/laundry.png";
 import DressingTableSticker from "../../../public/images/dressing-table.png";
 import PepperAndSalt from "../../../public/images/pepper-and-salt.png";
 import PlantPot from "../../../public/images/plant-pot.png";
-import "@splidejs/react-splide/css";
 import * as S from "./Products.styles";
+import "@splidejs/react-splide/css";
 
 export const Products = () => {
   return (
@@ -18,22 +18,19 @@ export const Products = () => {
         options={{
           type: "slide",
           perPage: 3,
-          gap: "2rem",
+          gap: "10rem",
           arrows: false,
           pagination: false,
-          drag: false,
+
           breakpoints: {
             1024: {
               perPage: 2,
               drag: true,
-              pagination: true,
             },
             768: {
               perPage: 1,
               gap: "1rem",
               drag: true,
-              pagination: true,
-              arrows: false,
             },
           },
         }}
@@ -45,11 +42,13 @@ export const Products = () => {
               $position="bottom-left"
               $size={100}
             />
-            <S.ProductImage
-              src={Kitchen.src}
-              alt="Kit Cozinha"
-              $isKitchen={true}
-            />
+            <S.ImageWrapper>
+              <S.ProductImage
+                src={Kitchen.src}
+                alt="Kit Cozinha"
+                $isKitchen={true}
+              />
+            </S.ImageWrapper>
             <S.CardTitle>Kit Cozinha</S.CardTitle>
             <S.Description>
               O cantinho perfeito para as brincadeiras de faz de conta. Feito
@@ -64,7 +63,9 @@ export const Products = () => {
               src={DressingTableSticker.src}
               $position="bottom-right"
             />
-            <S.ProductImage src={DressingTable.src} alt="Penteadeira" />
+            <S.ImageWrapper>
+              <S.ProductImage src={DressingTable.src} alt="Penteadeira" />
+            </S.ImageWrapper>
             <S.CardTitle>Penteadeira</S.CardTitle>
             <S.Description>
               Charme e delicadeza para o quarto. Acompanha banquinho estofado e
@@ -76,7 +77,9 @@ export const Products = () => {
         <SplideSlide>
           <S.CardItem>
             <S.Sticker src={PlantPot.src} $position="top-left" $size={105} />
-            <S.ProductImage src={Laundry.src} alt="Lavanderia" />
+            <S.ImageWrapper>
+              <S.ProductImage src={Laundry.src} alt="Lavanderia" />
+            </S.ImageWrapper>
             <S.CardTitle>Kit Lavanderia</S.CardTitle>
             <S.Description>
               Ideal para atividades, desenhos e lanchinhos. Design ergonômico

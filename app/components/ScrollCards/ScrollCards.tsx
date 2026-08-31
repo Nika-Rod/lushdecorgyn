@@ -5,7 +5,6 @@ export default function ScrollCards() {
   const { sectionRef, cardsRef, dataCards } = useScrollCards();
   return (
     <S.CardsSection ref={sectionRef}>
-      <h2>Scroll Cards</h2>
       <S.StickyContainer>
         <S.CardsContainer>
           {dataCards.map((card, index) => (

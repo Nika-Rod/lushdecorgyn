@@ -1,69 +1,83 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-export const StripeWrapper = styled.div`
-  position: relative;
-  z-index: 10;
+const AnimationStripe = keyframes`
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+`;
+
+export const StripeClip = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 0;
   width: 100%;
-  height: 0;
+  height: 15rem; 
+  overflow: hidden;
+  transform: translateY(-50%);
+
+  @media (min-width: 768px) {
+    height: 35rem; 
+  }
+`;
+
+export const Stripe = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 125vw; */
   display: flex;
-  justify-content: center;
   align-items: center;
+  transform: translate(-50%, -50%) rotate(-3deg);
+  background: #f2af46;
+  padding: 0.625rem 0;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.15);
+  border-top: 0.25rem solid #1f2a37;
+  border-bottom: 0.25rem solid #1f2a37;
+`;
 
-  .stripe {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) rotate(-3deg);
-    display: flex;
-    align-items: center;
-    width: 115vw; 
-    left: -7.5vw;
-    background: #f2af46;
-    padding: 20px 0;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
-    border-top: 4px solid #1f2a37;
-    border-bottom: 4px solid #1f2a37;
-    white-space: nowrap;
-  }
+export const Marquee = styled.div`
+  overflow: hidden;
+  width: 100%;
+`;
 
-  .marquee {
-    overflow: hidden;
-    width: 100%;
-  }
+export const MarqueeContent = styled.div`
+  display: flex;
+  gap: 3.75rem;
+  width: max-content;
+  animation: ${AnimationStripe} 30s linear infinite;
 
-  .marquee__content {
-    display: flex;
-    gap: 60px;
-    width: max-content;
-    animation: marquee 30s linear infinite;
-  }
-
-  .marquee__content span {
-    font-size: 54px;
+  span {
+    font-size: 2rem;
     font-weight: 900;
     color: #1f2a37;
     white-space: nowrap;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 1.25rem;
   }
+`;
 
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
+export const StripeWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 0;
+  z-index: 10;
+  pointer-events: none; 
 
-  @media (max-width: 768px) {
-    margin-top: -40px;
-    .stripe {
-      padding: 10px 0;
-      transform: rotate(-5deg);
+  @media (min-width: 768px) {
+    margin-top: -2.5rem;
+    
+    ${Stripe} {
+      padding: 1.25rem 0;
+      transform: translate(-50%, -50%) rotate(-3deg);
+      width: 130vw; 
     }
-    .marquee__content span {
-      font-size: 32px;
+    
+    ${MarqueeContent} span {
+      font-size: 3.375rem;
     }
   }
 `;
